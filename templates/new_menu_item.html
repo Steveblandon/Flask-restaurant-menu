@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel='stylesheet' type='text/css' href='{{ url_for("static", filename="styles.css") }}'>
+    </head>
+    <body>
+        <div class='header'>
+                <h1>New Menu Item</h1>
+            </div>
+        <form action='{{ url_for("new_menu_item", restaurant_id=restaurant_id) }}' enctype='multipart/form-data' method='POST'>
+            <p>name:</p> 
+            <input type='text' name='menu_item_name' value='new name here'>
+            <br>
+            <p>price:</p> 
+            <input type='text' name='menu_item_price' value='0.00'>
+            <br>
+            <p>description:</p> 
+            <input type='text' name='menu_item_desc' value='description here'>
+            <br>
+            <input class='button' type='submit' value='Submit'>
+            <a href='{{ url_for("menu_items", restaurant_id=restaurant_id) }}'>Cancel</a>
+        </form>
+    </body>
+</html>

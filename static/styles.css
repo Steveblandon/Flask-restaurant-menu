@@ -1,0 +1,58 @@
+body {
+    font-family: sans-serif;
+    background-color: #333333;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 5px;
+    margin: auto;
+    width: 50%;
+    border-color: #999999;
+}
+
+h1 {
+    border-bottom: 2px solid #eee;
+    font-family: 'georgia', serif;
+    margin: 0;
+    color: #ffffff;
+}
+
+p, h3 {
+    color: #cccccc;
+    display: inline-block;
+}
+
+a {
+    color: #ffffcc;
+    font-size: .75em;
+}
+
+.header {
+    left: 50%;
+    text-align: center;
+}
+
+.name {
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+
+.price {
+    text-align: right;
+    width: 50%;
+    float: right;
+}
+
+.description {
+    color: #9b9999;
+}
+
+.flash {
+    background: #cee5f5;
+}
+
+.button {
+    color: #cccccc;;
+    background-color: #6d6565;
+    border-color: #4d4747;
+}
