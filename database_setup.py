@@ -3,11 +3,11 @@ import sys
 from sqlalchemy import create_engine, Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-
+import config as cfg
 
 Base = declarative_base()
-engine = create_engine('sqlite:///restaurantmenudb.db')
-Base.metadata.create_all(engine)
+engine = create_engine('%s+%s://%s:%s@%s:%s/%s' % (cfg.DB_DIALECT, cfg.DB_DRIVER, 
+    cfg.DB_USER, cfg.DB_PASS, cfg.DB_HOST, cfg.DB_PORT, cfg.DB_NAME))
 
 
 class Restaurant(Base):
@@ -35,3 +35,5 @@ class MenuItem(Base):
             'price': self.price,
             'description': self.description,
         }
+
+Base.metadata.create_all(engine)

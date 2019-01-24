@@ -2,10 +2,12 @@ from database_setup import Base, Restaurant, MenuItem
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from flask import Flask, request, redirect, url_for, render_template, flash, jsonify
+import config as cfg
 
 
 app = Flask(__name__)
-engine = create_engine('sqlite:///restaurantmenudb.db')
+engine = create_engine('%s+%s://%s:%s@%s:%s/%s' % (cfg.DB_DIALECT, cfg.DB_DRIVER, 
+    cfg.DB_USER, cfg.DB_PASS, cfg.DB_HOST, cfg.DB_PORT, cfg.DB_NAME))
 Base.metadata.bind = engine
 dbsession = sessionmaker(bind=engine)
 
@@ -149,7 +151,8 @@ def del_menu_item(restaurant_id, menu_item_id):
 #     else:
 #         return '{}'
 
+
 if __name__ == '__main__':
-    app.debug = True
-    app.secret_key = 'slskfn34omffdm@Fsdj30f##2df0E'
-    app.run(host='0.0.0.0', port=8080)
+    app.debug = cfg.FLASK_ENABLE_DEBUG
+    app.secret_key = cfg.SESSION_SECRET
+    app.run(host=cfg.APP_HOST, port=cfg.APP_PORT)
