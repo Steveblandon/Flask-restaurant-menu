@@ -21,4 +21,4 @@ if 'RDS_HOSTNAME' in os.environ:
     DB_PORT = os.environ['RDS_PORT']
     DB_USER = os.environ['RDS_USERNAME']
     DB_PASS = os.environ['RDS_PASSWORD']
-    DB_NAME = os.environ['RDS_DB_NAME']
+    # DB_NAME = os.environ['RDS_DB_NAME']
